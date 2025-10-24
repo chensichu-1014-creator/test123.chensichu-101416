@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>睾丸扭转 - 症状、原因与应对措施</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36CFC9',
+            danger: '#F53F3F',
+            warning: '#FF7D00',
+            neutral: '#86909C',
+            light: '#F2F3F5',
+            dark: '#1D2129'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .progress-bar {
+        height: 4px;
+        background: linear-gradient(90deg, #165DFF 0%, #36CFC9 100%);
+        width: 0%;
+        transition: width 0.5s ease;
+      }
+      .img-container {
+        overflow: hidden;
+        border-radius: 0.75rem;
+      }
+      .medical-img {
+        transition: transform 0.3s ease;
+      }
+      .medical-img:hover {
+        transform: scale(1.03);
+      }
+    }
+  </style>
+</head>
+<body class="font-inter bg-gray-50 text-dark">
+  <!-- 导航栏 -->
+  <nav id="navbar" class="fixed w-full bg-white/95 shadow-sm z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fa fa-medkit text-primary text-2xl"></i>
+        <span class="font-bold text-xl text-primary">男性健康指南</span>
+      </div>
+      <div class="hidden md:flex space-x-8">
+        <a href="#cause" class="text-neutral hover:text-primary transition-colors">发病病因</a>
+        <a href="#symptoms" class="text-neutral hover:text-primary transition-colors">症状表现</a>
+        <a href="#actions" class="text-neutral hover:text-primary transition-colors">应对措施</a>
+        <a href="#harm" class="text-neutral hover:text-primary transition-colors">潜在危害</a>
+      </div>
+      <button class="md:hidden text-primary text-xl" id="menuToggle">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+        <a href="#cause" class="py-2 text-neutral hover:text-primary transition-colors">发病病因</a>
+        <a href="#symptoms" class="py-2 text-neutral hover:text-primary transition-colors">症状表现</a>
+        <a href="#actions" class="py-2 text-neutral hover:text-primary transition-colors">应对措施</a>
+        <a href="#harm" class="py-2 text-neutral hover:text-primary transition-colors">潜在危害</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 紧急提示条 -->
+  <div class="bg-danger/10 border-l-4 border-danger text-danger py-3 px-4 fixed top-16 w-full z-40">
+    <div class="container mx-auto flex items-center">
+      <i class="fa fa-exclamation-circle mr-2"></i>
+      <p class="text-sm md:text-base"><strong>紧急提示：</strong>睾丸扭转是急症，黄金治疗时间为症状出现后6小时内，延误治疗可能导致睾丸坏死！</p>
+    </div>
+  </div>
+
+  <!-- 头部横幅 -->
+  <header class="pt-32 pb-20 bg-gradient-to-br from-primary/90 to-primary">
+    <div class="container mx-auto px-4 text-center text-white">
+      <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-4 text-shadow">睾丸扭转</h1>
+      <p class="text-[clamp(1rem,2vw,1.25rem)] max-w-3xl mx-auto opacity-90">
+        了解睾丸扭转的病因、症状、紧急应对措施及潜在危害，保护男性生殖健康
+      </p>
+      <div class="mt-10">
+        <a href="#actions" class="bg-white text-primary font-semibold px-6 py-3 rounded-full inline-flex items-center shadow-lg hover:shadow-xl transition-all">
+          <i class="fa fa-ambulance mr-2"></i> 紧急应对措施
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 概述部分 -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/2">
+          <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold mb-6 text-dark">什么是睾丸扭转？</h2>
+          <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            睾丸扭转是指睾丸沿精索发生旋转，导致精索内的血管受压，血流受阻的急症。这种情况会迅速导致睾丸缺血，如果不及时治疗，可能造成睾丸坏死，需要手术切除。
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            睾丸扭转可发生于任何年龄，但多见于青少年，尤其是12-18岁的男性。了解其症状和应对措施，对于及时治疗、保护生殖功能至关重要。
+          </p>
+        </div>
+        <div class="md:w-1/2 img-container">
+          <img src="https://picsum.photos/id/237/600/400" alt="睾丸解剖结构示意图" class="medical-img w-full h-auto rounded-lg shadow-md">
+          <p class="text-center text-sm text-neutral mt-2">睾丸及精索解剖结构示意图</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 发病病因 -->
+  <section id="cause" class="py-16 bg-light">
+    <div class="container mx-auto px-4">
+      <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-center mb-12 text-dark">发病病因</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+          <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="fa fa-user text-primary text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">解剖学因素</h3>
+          <div class="img-container mb-4">
+            <img src="https://picsum.photos/id/96/400/200" alt="解剖学因素示意图" class="medical-img w-full h-auto">
+          </div>
+          <p class="text-gray-700">
+            睾丸系膜过长、睾丸引带发育不良或缺失，使睾丸活动度增大，容易发生扭转。这种解剖学异常可能是先天性的。
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+          <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="fa fa-moon-o text-primary text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">睡眠或活动因素</h3>
+          <div class="img-container mb-4">
+            <img src="https://picsum.photos/id/1060/400/200" alt="睡眠与活动因素" class="medical-img w-full h-auto">
+          </div>
+          <p class="text-gray-700">
+            多数睾丸扭转发生在睡眠中或睡眠后，可能与睡眠中腿部运动、提睾肌不自主收缩有关。剧烈运动或外伤也可能诱发。
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+          <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="fa fa-birthday-cake text-primary text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">年龄因素</h3>
+          <div class="img-container mb-4">
+            <img src="https://picsum.photos/id/177/400/200" alt="年龄分布示意图" class="medical-img w-full h-auto">
+          </div>
+          <p class="text-gray-700">
+            青少年期睾丸快速生长，可能增加扭转风险。新生儿和婴幼儿也可能发生，但相对少见。
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+          <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="fa fa-random text-primary text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">其他因素</h3>
+          <div class="img-container mb-4">
+            <img src="https://picsum.photos/id/119/400/200" alt="环境因素示意图" class="medical-img w-full h-auto">
+          </div>
+          <p class="text-gray-700">
+            天气寒冷、局部温度变化可能刺激提睾肌收缩，诱发扭转。部分病例无明显诱因，突然发生。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 症状表现 -->
+  <section id="symptoms" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-center mb-12 text-dark">症状表现</h2>
+      
+      <div class="max-w-5xl mx-auto">
+        <div class="flex flex-col md:flex-row gap-8 mb-10">
+          <div class="md:w-1/2">
+            <div class="bg-danger/5 border-l-4 border-danger p-5 rounded-r-lg h-full">
+              <h3 class="text-xl font-semibold text-danger mb-4 flex items-center">
+                <i class="fa fa-exclamation-triangle mr-2"></i> 典型症状
+              </h3>
+              <ul class="space-y-4 pl-6">
+                <li class="flex items-start">
+                  <i class="fa fa-circle text-danger text-xs mt-1.5 mr-2"></i>
+                  <span><strong>突发性剧烈疼痛：</strong>患侧睾丸突然出现剧烈疼痛，常从睡眠中痛醒，疼痛可向腹股沟、下腹部放射。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-circle text-danger text-xs mt-1.5 mr-2"></i>
+                  <span><strong>睾丸肿胀：</strong>患侧睾丸迅速肿胀，触痛明显。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-circle text-danger text-xs mt-1.5 mr-2"></i>
+                  <span><strong>睾丸位置异常：</strong>扭转的睾丸可能上移至阴囊根部，呈横位。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:w-1/2 img-container">
+            <img src="https://picsum.photos/id/235/600/400" alt="症状表现示意图" class="medical-img w-full h-auto rounded-lg shadow-md">
+            <p class="text-center text-sm text-neutral mt-2">睾丸扭转症状示意图</p>
+          </div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-light rounded-lg p-5">
+            <h3 class="text-lg font-semibold mb-3 text-primary">伴随症状</h3>
+            <ul class="space-y-2 pl-5">
+              <li class="flex items-start">
+                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                <span>恶心、呕吐</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                <span>下腹部疼痛</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                <span>阴囊皮肤发红</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                <span>低热（少数情况）</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-light rounded-lg p-5">
+            <h3 class="text-lg font-semibold mb-3 text-primary">婴幼儿症状特点</h3>
+            <ul class="space-y-2 pl-5">
+              <li class="flex items-start">
+                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                <span>哭闹不安，难以安抚</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                <span>患侧阴囊红肿</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                <span>可能出现呕吐、拒奶</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 应对措施 -->
+  <section id="actions" class="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <div class="container mx-auto px-4">
+      <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-center mb-12 text-dark">应对措施</h2>
+      
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-8">
+        <div class="md:w-3/5">
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div class="bg-danger text-white p-4">
+              <h3 class="text-xl font-bold flex items-center">
+                <i class="fa fa-ambulance mr-2"></i> 紧急处理步骤
+              </h3>
+            </div>
+            <div class="p-6">
+              <ol class="space-y-6">
+                <li class="flex">
+                  <div class="flex-shrink-0 w-8 h-8 bg-danger text-white rounded-full flex items-center justify-center font-bold mr-4">1</div>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">立即就医</h4>
+                    <p class="text-gray-700">一旦出现疑似症状，立即前往最近的医院急诊科，不要等待观察，时间就是睾丸！</p>
+                  </div>
+                </li>
+                <li class="flex">
+                  <div class="flex-shrink-0 w-8 h-8 bg-danger text-white rounded-full flex items-center justify-center font-bold mr-4">2</div>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">告知医生症状</h4>
+                    <p class="text-gray-700">清晰描述症状出现的时间、性质和变化，帮助医生快速判断病情。</p>
+                  </div>
+                </li>
+                <li class="flex">
+                  <div class="flex-shrink-0 w-8 h-8 bg-danger text-white rounded-full flex items-center justify-center font-bold mr-4">3</div>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">配合检查</h4>
+                    <p class="text-gray-700">医生可能会进行超声检查（彩色多普勒），评估睾丸血流情况，快速明确诊断。</p>
+                  </div>
+                </li>
+                <li class="flex">
+                  <div class="flex-shrink-0 w-8 h-8 bg-danger text-white rounded-full flex items-center justify-center font-bold mr-4">4</div>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">接受紧急治疗</h4>
+                    <p class="text-gray-700">确诊后通常需要紧急手术复位，医生会尝试手法复位，但多数情况需要手术治疗。</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+          
+          <div class="bg-warning/10 rounded-lg p-5 border-l-4 border-warning">
+            <h3 class="font-semibold text-warning flex items-center mb-3">
+              <i class="fa fa-hand-paper-o mr-2"></i> 禁忌事项
+            </h3>
+            <ul class="space-y-2 pl-5 text-gray-700">
+              <li class="flex items-start">
+                <i class="fa fa-times-circle text-warning mt-1 mr-2"></i>
+                <span>不要自行按摩或热敷，可能加重扭转和损伤</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-times-circle text-warning mt-1 mr-2"></i>
+                <span>不要服用止痛药后等待观察，可能掩盖症状延误治疗</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-times-circle text-warning mt-1 mr-2"></i>
+                <span>不要因害羞或犹豫而推迟就医，时间就是睾丸的生命</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="md:w-2/5">
+          <div class="img-container mb-6">
+            <img src="https://picsum.photos/id/96/600/400" alt="急诊就医示意图" class="medical-img w-full h-auto rounded-lg shadow-md">
+            <p class="text-center text-sm text-neutral mt-2">紧急就医是关键</p>
+          </div>
+          <div class="img-container">
+            <img src="https://picsum.photos/id/287/600/400" alt="超声检查示意图" class="medical-img w-full h-auto rounded-lg shadow-md">
+            <p class="text-center text-sm text-neutral mt-2">超声检查是常用诊断方法</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 治疗时间与成功率 -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h3 class="text-xl font-bold text-center mb-8">治疗时间与睾丸存活率关系</h3>
+      <div class="max-w-3xl mx-auto">
+        <canvas id="survivalChart" height="250"></canvas>
+      </div>
+      <p class="text-center text-neutral mt-4 text-sm">数据来源：临床研究统计，展示不同时间段内手术复位后睾丸的存活率</p>
+    </div>
+  </section>
+
+  <!-- 潜在危害 -->
+  <section id="harm" class="py-16 bg-light">
+    <div class="container mx-auto px-4">
+      <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-center mb-12 text-dark">潜在危害</h2>
+      
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white rounded-xl shadow-md p-6 card-hover border-t-4 border-danger">
+          <div class="w-12 h-12 bg-danger/10 rounded-full flex items-center justify-center mb-4">
+            <i class="fa fa-heartbeat text-danger text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">睾丸坏死</h3>
+          <div class="img-container mb-4">
+            <img src="https://picsum.photos/id/180/400/200" alt="睾丸坏死示意图" class="medical-img w-full h-auto">
+          </div>
+          <p class="text-gray-700">
+            扭转超过6小时，睾丸缺血严重可能导致坏死，需要手术切除。超过24小时，几乎100%会坏死。
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md p-6 card-hover border-t-4 border-warning">
+          <div class="w-12 h-12 bg-warning/10 rounded-full flex items-center justify-center mb-4">
+            <i class="fa fa-medkit text-warning text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">生育功能影响</h3>
+          <div class="img-container mb-4">
+            <img src="https://picsum.photos/id/169/400/200" alt="生育功能影响示意图" class="medical-img w-full h-auto">
+          </div>
+          <p class="text-gray-700">
+            即使一侧睾丸得以保留，也可能影响生精功能。双侧扭转若处理不当，可能导致不育。
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md p-6 card-hover border-t-4 border-neutral">
+          <div class="w-12 h-12 bg-neutral/10 rounded-full flex items-center justify-center mb-4">
+            <i class="fa fa-frown-o text-neutral text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">心理与生理影响</h3>
+          <div class="img-container mb-4">
+            <img src="https://picsum.photos/id/1005/400/200" alt="心理影响示意图" class="medical-img w-full h-auto">
+          </div>
+          <p class="text-gray-700">
+            可能导致性激素水平变化、性功能受影响，以及焦虑、自卑等心理问题。
+          </p>
+        </div>
+      </div>
+      
+      <div class="max-w-3xl mx-auto mt-10 bg-primary/5 rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <i class="fa fa-info-circle mr-2"></i> 治疗后的注意事项
+        </h3>
+        <ul class="space-y-2 pl-5 text-gray-700">
+          <li class="flex items-start">
+            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+            <span>遵医嘱休息，避免剧烈运动至少4-6周</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+            <span>定期复查，监测睾丸功能恢复情况</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+            <span>另一侧睾丸也有扭转风险，如有不适及时就医</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 总结提示 -->
+  <section class="py-16 bg-primary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold mb-6">关键信息总结</h2>
+      <div class="max-w-3xl mx-auto grid md:grid-cols-2 gap-6 text-left">
+        <div class="bg-white/10 p-5 rounded-lg">
+          <p class="flex items-start">
+            <i class="fa fa-clock-o mt-1 mr-3 text-xl"></i>
+            <span>睾丸扭转是急症，<strong>6小时内</strong>是黄金治疗时间</span>
+          </p>
+        </div>
+        <div class="bg-white/10 p-5 rounded-lg">
+          <p class="flex items-start">
+            <i class="fa fa-stethoscope mt-1 mr-3 text-xl"></i>
+            <span>唯一有效治疗是<strong>紧急手术复位</strong>，切勿延误</span>
+          </p>
+        </div>
+        <div class="bg-white/10 p-5 rounded-lg">
+          <p class="flex items-start">
+            <i class="fa fa-bell mt-1 mr-3 text-xl"></i>
+            <span>突发睾丸剧痛是典型症状，<strong>立即就医</strong></span>
+          </p>
+        </div>
+        <div class="bg-white/10 p-5 rounded-lg">
+          <p class="flex items-start">
+            <i class="fa fa-users mt-1 mr-3 text-xl"></i>
+            <span>青少年是高发人群，家长需提高警惕</span>
+          </p>
+        </div>
+      </div>
+      <div class="mt-10">
+        <a href="tel:120" class="bg-white text-primary font-bold px-8 py-4 rounded-full inline-flex items-center text-lg shadow-lg hover:shadow-xl transition-all">
+          <i class="fa fa-phone mr-2"></i> 紧急就医：拨打120
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-10">
+    <div class="container mx-auto px-4">
+      <div class="text-center">
+        <p class="mb-4">本页面信息仅供参考，不能替代专业医疗建议</p>
+        <p class="text-neutral text-sm">如有健康问题，请咨询专业医生</p>
+        <!-- 添加出处信息 -->
+        <p class="text-neutral text-sm mt-6">出处：番禺区职业技术学校23动漫1班陈思楚</p>
+        <div class="mt-6 flex justify-center space-x-4">
+          <a href="#" class="text-neutral hover:text-white transition-colors">
+            <i class="fa fa-hospital-o text-xl"></i>
+          </a>
+          <a href="#" class="text-neutral hover:text-white transition-colors">
+            <i class="fa fa-question-circle text-xl"></i>
+          </a>
+          <a href="#" class="text-neutral hover:text-white transition-colors">
+            <i class="fa fa-share-alt text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all z-50">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <!-- 进度条 -->
+  <div class="progress-bar fixed top-0 left-0 z-50"></div>
+
+  <script>
+    // 移动端菜单切换
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // 导航栏滚动效果
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      const backToTop = document.getElementById('backToTop');
+      const progressBar = document.querySelector('.progress-bar');
+      
+      // 导航栏效果
+      if (window.scrollY > 100) {
+        navbar.classList.add('py-2', 'shadow');
+        navbar.classList.remove('py-3');
+      } else {
+        navbar.classList.add('py-3');
+        navbar.classList.remove('py-2', 'shadow');
+      }
+      
+      // 返回顶部按钮
+      if (window.scrollY > 500) {
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+      } else {
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+      }
+      
+      // 滚动进度条
+      const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / scrollTotal) * 100;
+      progressBar.style.width = scrolled + '%';
+    });
+    
+    // 返回顶部功能
+    document.getElementById('backToTop').addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // 关闭移动菜单（如果打开）
+        document.getElementById('mobileMenu').classList.add('hidden');
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // 存活率图表
+    const ctx = document.getElementById('survivalChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['<6小时', '6-12小时', '12-24小时', '>24小时'],
+        datasets: [{
+          label: '睾丸存活率 (%)',
+          data: [90, 50, 20, 0],
+          backgroundColor: [
+            'rgba(54, 207, 201, 0.8)',
+            'rgba(22, 93, 255, 0.8)',
+            'rgba(255, 125, 0, 0.8)',
+            'rgba(245, 63, 63, 0.8)'
+          ],
+          borderColor: [
+            'rgba(54, 207, 201, 1)',
+            'rgba(22, 93, 255, 1)',
+            'rgba(255, 125, 0, 1)',
+            'rgba(245, 63, 63, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            title: {
+              display: true,
+              text: '存活率 (%)'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: '症状出现至手术时间'
+            }
+          }
+        },
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `存活率: ${context.raw}%`;
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
